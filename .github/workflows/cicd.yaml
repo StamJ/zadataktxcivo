@@ -97,7 +97,7 @@ jobs: #this will check for specific changes and fire up CI or CD
       - name: Run pulumi UP/Destroy
         uses: pulumi/actions@v3
         with:
-          command: destroy
+          command: up
           stack-name: StamJ/civo/live
           work-dir: ./infra/
         env:
