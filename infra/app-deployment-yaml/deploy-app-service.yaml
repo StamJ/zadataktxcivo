@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: malaapp
-        image: "stamj/zadatak:latest"
+        image: "stamenium/zadatak:latest"
         imagePullPolicy: Always
 ---
 apiVersion: v1
