@@ -16,7 +16,7 @@ const cluster = new civo.KubernetesCluster("klaster1", {
     },
 });
 
-const loadBalancerIp = new civo.ReservedIp("klaster1",{});
+// const loadBalancerIp = new civo.ReservedIp("klaster1",{});
 
-export const loadBalancerIpId = loadBalancerIp.ip;
+// export const loadBalancerIpId = loadBalancerIp.ip;
 export const kubeconfig = cluster.kubeconfig;
