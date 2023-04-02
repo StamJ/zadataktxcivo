@@ -90,7 +90,7 @@ jobs: #this will check for specific changes and fire up CI or CD
           stack-name: StamJ/civo/live
           work-dir: ./infra/
         env:
-          CIVO_TOKEN: ${{ CIVO_TOKEN }}
+          CIVO_TOKEN: ${{ secrets.CIVO_TOKEN }}
           PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
      
 
@@ -101,6 +101,6 @@ jobs: #this will check for specific changes and fire up CI or CD
           stack-name: StamJ/civo/live
           work-dir: ./infra/
         env:
-          CIVO_TOKEN: ${{ CIVO_TOKEN }}
+          CIVO_TOKEN: ${{ secrets.CIVO_TOKEN }}
           PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
   
