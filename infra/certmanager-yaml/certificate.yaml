@@ -1,0 +1,13 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: goldbach
+  namespace: default
+spec:
+  secretName: goldbach
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer
+  commonName: goldbach.f2ee9dfc-d25f-4241-9453-27234ec7fd4a.lb.civo.com
+  dnsNames:
+  - goldbach.f2ee9dfc-d25f-4241-9453-27234ec7fd4a.lb.civo.com

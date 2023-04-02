@@ -1,0 +1,24 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    kubernetes.io/ingress.class: traefik
+  name: nginx-ingress
+  namespace: default
+spec:
+  rules:
+  - host: goldbach.f2ee9dfc-d25f-4241-9453-27234ec7fd4a.lb.civo.com
+    http:
+      paths:
+      - backend:
+          service:
+            name: malaapp-dep
+            port:
+              number: 80
+        path: /goldbach
+        pathType: Prefix
+  tls:
+  - hosts:
+    - goldbach.f2ee9dfc-d25f-4241-9453-27234ec7fd4a.lb.civo.com
+    secretName: goldbach
