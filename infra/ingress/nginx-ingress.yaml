@@ -8,7 +8,7 @@ metadata:
   namespace: default
 spec:
   rules:
-  - host: goldbach.f2ee9dfc-d25f-4241-9453-27234ec7fd4a.lb.civo.com
+  - host: goldbach.9e315da9-05f3-4198-b1f5-895e7f0236c6.lb.civo.com
     http:
       paths:
       - backend:
@@ -20,5 +20,5 @@ spec:
         pathType: Prefix
   tls:
   - hosts:
-    - goldbach.f2ee9dfc-d25f-4241-9453-27234ec7fd4a.lb.civo.com
+    - goldbach.9e315da9-05f3-4198-b1f5-895e7f0236c6.lb.civo.com
     secretName: goldbach

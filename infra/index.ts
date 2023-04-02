@@ -46,41 +46,41 @@ const certmanager = new k8s.yaml.ConfigGroup("certmanager-crd-manifests",
 ////////
 //this part needs to be paused as you need to retrieve the domainnames that cluster generated
 //so that yaml can be populated properly as the domain we are using is not our own
-// const certificate = new k8s.yaml.ConfigGroup("certificate-crd-manifests",
-//     {
-//         files: "certmanager-yaml/certificate.yaml"
-//     },
-//     {
-//         provider: k8sProvider,
-//         dependsOn: [ certmanager, cluster, k8sProvider ],
-//     },
-// );
+const certificate = new k8s.yaml.ConfigGroup("certificate-crd-manifests",
+    {
+        files: "certmanager-yaml/certificate.yaml"
+    },
+    {
+        provider: k8sProvider,
+        dependsOn: [ certmanager, cluster, k8sProvider ],
+    },
+);
 
 
-// const app = new k8s.yaml.ConfigGroup("app-deploy-service",
-//     {
-//         files: "app-deployment-yaml/deploy-app-service.yaml"
-//     },
-//     {
-//         provider: k8sProvider,
-//         dependsOn: [ certificate, certmanager, cluster, k8sProvider ],
-//     },
-// );
+const app = new k8s.yaml.ConfigGroup("app-deploy-service",
+    {
+        files: "app-deployment-yaml/deploy-app-service.yaml"
+    },
+    {
+        provider: k8sProvider,
+        dependsOn: [ certificate, certmanager, cluster, k8sProvider ],
+    },
+);
 
 
-// const ingress = new k8s.yaml.ConfigGroup("ingress",
-//     {
-//         files: "ingress/nginx-ingress.yaml"
-//     },
-//     {
-//         provider: k8sProvider,
-//         dependsOn: [ app, certificate, certmanager, cluster, k8sProvider ],
-//     },
-// );
+const ingress = new k8s.yaml.ConfigGroup("ingress",
+    {
+        files: "ingress/nginx-ingress.yaml"
+    },
+    {
+        provider: k8sProvider,
+        dependsOn: [ app, certificate, certmanager, cluster, k8sProvider ],
+    },
+);
 
 
-// export const clusterName = cluster.name;
-// export const kubeconfig = cluster.kubeconfig;
+export const clusterName = cluster.name;
+export const kubeconfig = cluster.kubeconfig;
 
 ////////////////////
 ////////////////////
